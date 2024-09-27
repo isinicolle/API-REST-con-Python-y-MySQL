@@ -1,14 +1,17 @@
 # Importamos los módulos necesarios
 from flask import Flask, request, jsonify
-import mysql.connector
 from dotenv import load_dotenv
 import os
+from flask_cors import CORS
+import mysql.connector
 
 # Cargamos las variables de entorno desde el archivo .env
 load_dotenv()
 
 # Creamos una instancia de la aplicación Flask
 app = Flask(__name__)
+
+CORS(app)  # Esto habilita CORS para toda la aplicación
 
 # Configuración de conexión a la base de datos desde variables de entorno
 db_config = {
